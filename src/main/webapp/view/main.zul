@@ -1,0 +1,21 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="new page title" border="normal"
+		viewModel=" @id('vm') @init('com.sdd.belajarmaven.viewmodel.MainVm')">
+		<label value="Halaman Utama" style="font-size:22px" />
+		<separator />
+		<hlayout>
+			<a label="Product"
+				onClick="@command('doNav', page='/view/product1.zul')" />
+			<separator />
+			<a label="Order"
+				onClick="@command('doNav', page='/view/order.zul')" />
+			<a label="Report"
+				onClick="@command('doNav', page='/view/report.zul')" />
+			<a label="Report Bulanan"
+				onClick="@command('doNav', page='/view/reportbulanan.zul')" />
+		</hlayout>
+		<separator />
+		<div id="divContent" />
+	</window>
+</zk>

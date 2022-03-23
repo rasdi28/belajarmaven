@@ -1,0 +1,26 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="new page title" border="normal"
+		viewModel=" @id('vm') @init('com.sdd.belajarmaven.viewmodel.ProductVm')">
+
+		<separator />
+		<groupbox>
+			<hbox align="end">
+				<button label="Create Barang" style=""
+					onClick="@command('create')" />
+			</hbox>
+			<separator />
+
+			<grid id="grid" mold="paging" pageSize="5"
+				pagingPosition="bottom">
+				<columns>
+					<column label="No" width="40px" />
+					<column label="Nama Barang" />
+					<column label="Price" />
+					<column label="Stock " />
+					<column label="Action" width="260px" align="center" />
+				</columns>
+			</grid>
+		</groupbox>
+	</window>
+</zk>

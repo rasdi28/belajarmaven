@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+D:\Project\SDD\FirstProject\Code\belajarmaven\.metadata\.plugins\org.eclipse.jdt.core
+2713445987.index

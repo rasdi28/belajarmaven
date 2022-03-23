@@ -1,0 +1,20 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="new page title" border="normal"
+		viewModel=" @id('vm') @init('com.sdd.belajarmaven.viewmodel.ReportbulananVm')">
+		<groupbox>
+			<grid id="grid" mold="paging" pageSize="5"
+				pagingPosition="bottom">
+				<columns>
+					<column label="No" width="40px" />
+					<column label="Tahun" width="400px"  align="center" />
+					<column label="Bulan" />
+					<column label="Total Order" />
+					<column label="Total Harga" />
+					
+				</columns>
+				<rows />
+			</grid>
+		</groupbox>
+	</window>
+</zk>

@@ -1,0 +1,102 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="new page title" border="normal"
+		viewModel=" @id('vm') @init('com.sdd.belajarmaven.viewmodel.OrderVm')">
+		<separator />
+		<separator />
+
+		<groupbox
+			form="@id('e') @load(vm.objorder) @save(vm.objorder, before='doSubmit')"
+			title="Form Product">
+			<grid>
+				<columns>
+					<column width="350px" />
+					<column width="400px" />
+				</columns>
+				<rows>
+					<row>
+						<label value="Produk Name"></label>
+						<combobox id="cbproduct"
+							selectedItem="@bind(vm.objorder.mproduct)"
+							model="@bind(vm.mproductModel)">
+							<template name="model" var="mproduct">
+								<comboitem
+									label="@bind(mproduct.productname)">
+								</comboitem>
+							</template>
+						</combobox>
+					</row>
+					<row>
+						<label value="Order Qty" />
+						<intbox value="@bind(e.orderqty)"
+							onChange="@command('doCal', price = e.mproduct.productprice, qty =e.orderqty )"
+							width="200px" />
+					</row>
+					<row>
+						<label value="Order Time" />
+						<datebox hflex="1"
+							constraint="no empty, no today, no Future"
+							value="@bind(vm.ordertime)">
+						</datebox>
+					</row>
+					<row>
+						<label value="Total Price" />
+						<decimalbox value="@bind(e.totalprice)"
+							format=" 'Rp. ' ###,##0" disabled="true" />
+					</row>
+				</rows>
+				<foot>
+					<footer />
+					<footer>
+						<hlayout>
+							<button label="Keranjang" id="btnKeranjang"
+								onClick="@command('doKeranjang')" />
+							<button label="Submit" id="btnSubmit"
+								onClick="@command('doSubmit')" />
+							<button label="Delete" id="btnDelete"
+								onClick="@command('doDelete')" />
+
+						</hlayout>
+					</footer>
+				</foot>
+			</grid>
+		</groupbox>
+
+		<separator />
+		<groupbox>
+			<grid id="gridkeranjang" mold="paging" pageSize="5"
+				pagingPosition="bottom">
+				<columns>
+					<column label="No" width="40px" />
+					<column label="Nama Produk" />
+					<column label="Order Qty " />
+					<column label="Orrder Time" />
+					<column label="Total Price" />
+					<column label="Action" width="260px" align="center" />
+				</columns>
+				<rows>
+					<row value="@bind(vm.objorder)"></row>
+				</rows>
+			</grid>
+		</groupbox>
+
+		<separator />
+
+		<groupbox>
+			<grid id="grid" mold="paging" pageSize="5"
+				pagingPosition="bottom">
+				<columns>
+					<column label="No" width="40px" />
+					<column label="Nama Produk" />
+					<column label="Order Qty " />
+					<column label="Orrder Time" />
+					<column label="Total Price" />
+					<column label="Action" width="260px" align="center" />
+				</columns>
+				<rows>
+					<row value="@bind(vm.objorder)"></row>
+				</rows>
+			</grid>
+		</groupbox>
+	</window>
+</zk>

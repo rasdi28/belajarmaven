@@ -1,0 +1,38 @@
+<?page title="create product" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="create product" border="normal"
+		viewModel=" @id('vm') @init('com.sdd.belajarmaven.viewmodel.ProductCreateVm')">
+
+		<groupbox>
+			<grid>
+				<columns>
+					<column width="250px" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<label value="Nama Product" />
+						<textbox value="@bind(vm.objproduct.productname)" />
+					</row>
+					<row>
+						<label value="Stock" />
+						<textbox value="@bind(vm.objproduct.productstock)" />
+					</row>
+					<row>
+						<label value="Price" />
+						<textbox value="@bind(vm.objproduct.productprice)" />
+					</row>
+				</rows>
+				<foot>
+					<footer />
+					<footer>
+						<button label="Create Product" onClick="@command('doCreate')" />
+					</footer>
+				</foot>
+			</grid>
+
+		</groupbox>
+
+
+	</window>
+</zk>
